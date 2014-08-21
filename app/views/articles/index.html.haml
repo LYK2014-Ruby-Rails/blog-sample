@@ -1,4 +1,8 @@
 %h1 Listing Articles
+
+%p
+  = link_to 'New article', new_article_path, class: 'btn btn-success'
+
 %table.table.table-bordered.table-striped.table-condensed.table-hover
   %tr
     %th Title
@@ -13,5 +17,4 @@
         = link_to 'Edit', edit_article_path(article),  class: 'btn btn-sm btn-default'
         = link_to 'Destroy', article_path(article),
           method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
-= link_to 'New article', new_article_path
-| #{link_to 'Home Page', root_path}
+= link_to 'Home Page', root_path

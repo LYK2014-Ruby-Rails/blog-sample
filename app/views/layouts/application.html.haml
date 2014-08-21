@@ -19,6 +19,21 @@
             = link_to 'Blog', articles_path
           %li
             = link_to 'Books', books_path
+
+          - if user_signed_in?
+            %li= link_to current_user.full_name, edit_user_registration_path
+            %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+          - else
+            %li= link_to 'Sign in', new_user_session_path
+
         %h3.text-muted LYK2014 Sample Application
+
+        %hr/
+
+      - if flash.count > 0
+        - flash.each do |name, msg|
+          %div{class: "alert alert-#{name}"}
+            %a.close{'data-dismiss' => 'alert', :href => '#'} &times;
+            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
 
       = yield
