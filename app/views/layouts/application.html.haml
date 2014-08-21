@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:charset => 'utf-8'}/
+    %meta{:content => 'IE=edge', 'http-equiv' => 'X-UA-Compatible'}/
+    %meta{:content => 'width=device-width, initial-scale=1', :name => 'viewport'}/
+    %title LYK2014 Sample Application
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+
+    .container
+      .header
+        %ul.nav.nav-pills.pull-right
+          %li.active
+            = link_to 'Home', root_path
+          %li
+            = link_to 'Blog', articles_path
+          %li
+            = link_to 'Books', books_path
+        %h3.text-muted LYK2014 Sample Application
+
+      = yield

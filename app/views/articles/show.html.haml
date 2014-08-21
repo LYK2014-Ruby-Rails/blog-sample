@@ -1,0 +1,16 @@
+%h1 Article Details
+%p
+  %strong Title:
+  = @article.title
+%p
+  %strong Text:
+  = @article.text
+
+%h2 Comments
+= render @article.comments
+
+%h2 Add a comment:
+= render 'comments/form'
+
+= link_to 'Back', articles_path
+| #{link_to 'Edit', edit_article_path(@article)}
